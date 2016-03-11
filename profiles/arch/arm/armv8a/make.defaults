@@ -1,0 +1,5 @@
+CHOST="armv8a-hardfloat-linux-gnueabi"
+CFLAGS="-O2 -pipe -march=armv8-a"
+CXXFLAGS="${CFLAGS}"
+FFLAGS="${CFLAGS}"
+FCFLAGS="${CFLAGS}"

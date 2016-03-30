@@ -1,7 +1,7 @@
-From 76610303d10f886c382fe6ba54f0d89ed652497f Mon Sep 17 00:00:00 2001
+From 4e8083b4ab953ba298aedfc4e79d464be15e4012 Mon Sep 17 00:00:00 2001
 From: "riku.voipio" <riku.voipio@linaro.org>
 Date: Tue, 1 Mar 2016 08:02:43 -0800
-Subject: [PATCH 3/3] Linux Sandbox: whitelist arm64 syscalls
+Subject: [PATCH] Linux Sandbox: whitelist arm64 syscalls
 
 On debian/arm64, two syscalls needed whitelisting for chromium to work with seccomp:
 
@@ -20,8 +20,9 @@ Cr-Commit-Position: refs/heads/master@{#378440}
  components/nacl/loader/sandbox_linux/nacl_bpf_sandbox_linux.cc | 3 ++-
  content/common/sandbox_linux/bpf_renderer_policy_linux.cc      | 3 ++-
  content/common/sandbox_linux/bpf_utility_policy_linux.cc       | 3 ++-
+ mojo/shell/runner/host/linux_sandbox.cc                        | 5 ++++-
  sandbox/linux/seccomp-bpf-helpers/syscall_sets.cc              | 2 +-
- 4 files changed, 7 insertions(+), 4 deletions(-)
+ 5 files changed, 11 insertions(+), 5 deletions(-)
 
 diff --git a/components/nacl/loader/sandbox_linux/nacl_bpf_sandbox_linux.cc b/components/nacl/loader/sandbox_linux/nacl_bpf_sandbox_linux.cc
 index 66a606a..3e88304 100644
@@ -66,7 +67,7 @@ index 3ead1c8..1336796 100644
  #endif
  #if defined(__i386__) || defined(__arm__)
 diff --git a/sandbox/linux/seccomp-bpf-helpers/syscall_sets.cc b/sandbox/linux/seccomp-bpf-helpers/syscall_sets.cc
-index c217d47..21147b4 100644
+index 10278dc..b30b3e6 100644
 --- a/sandbox/linux/seccomp-bpf-helpers/syscall_sets.cc
 +++ b/sandbox/linux/seccomp-bpf-helpers/syscall_sets.cc
 @@ -414,6 +414,7 @@ bool SyscallSets::IsAllowedEpoll(int sysno) {

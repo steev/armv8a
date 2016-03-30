@@ -1,7 +1,7 @@
-From a6a7d9a4ad84da293071fbbbc7eedd2ce51abdf4 Mon Sep 17 00:00:00 2001
+From f352d974e43a73fed311c60c8fcb4dd043b16093 Mon Sep 17 00:00:00 2001
 From: "riku.voipio" <riku.voipio@linaro.org>
 Date: Wed, 27 Jan 2016 09:13:57 -0800
-Subject: [PATCH 2/3] sandbox arm64: align stack 16 bytes
+Subject: [PATCH] sandbox arm64: align stack 16 bytes
 
 chrome fails to start with user namespace sandboxing:
 

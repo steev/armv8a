@@ -121,12 +121,12 @@ DEPEND+=" $(python_gen_any_dep '
 	dev-python/simplejson[${PYTHON_USEDEP}]
 ')"
 python_check_deps() {
-	has_version "dev-python/beautifulsoup:python-2[${PYTHON_USEDEP}]" && \
-		has_version "dev-python/beautifulsoup:4[${PYTHON_USEDEP}]" && \
-		has_version "dev-python/html5lib[${PYTHON_USEDEP}]" && \
-		has_version "dev-python/jinja[${PYTHON_USEDEP}]" && \
-		has_version "dev-python/ply[${PYTHON_USEDEP}]" && \
-		has_version "dev-python/simplejson[${PYTHON_USEDEP}]"
+	has_version --host-root "dev-python/beautifulsoup:python-2[${PYTHON_USEDEP}]" &&
+	has_version --host-root "dev-python/beautifulsoup:4[${PYTHON_USEDEP}]" &&
+	has_version --host-root "dev-python/html5lib[${PYTHON_USEDEP}]" &&
+	has_version --host-root "dev-python/jinja[${PYTHON_USEDEP}]" &&
+	has_version --host-root "dev-python/ply[${PYTHON_USEDEP}]" &&
+	has_version --host-root "dev-python/simplejson[${PYTHON_USEDEP}]"
 }
 
 if ! has chromium_pkg_die ${EBUILD_DEATH_HOOKS}; then
@@ -194,8 +194,8 @@ src_prepare() {
 	epatch "${FILESDIR}/${PN}-widevine-r1.patch"
 	epatch "${FILESDIR}/${PN}-last-commit-position-r0.patch"
 	epatch "${FILESDIR}/${PN}-snapshot-toolchain-r1.patch"
-	epatch "${FILESDIR}/0003-Linux-Sandbox-whitelist-arm64-syscalls.patch"
-	epatch "${FILESDIR}/0002-sandbox-arm64-align-stack-16-bytes.patch"
+	epatch "${FILESDIR}/chromium-whitelist-arm64-syscalls.patch"
+	epatch "${FILESDIR}/chromium-arm64-align-stack-16-bytes.patch"
 
 	epatch_user
 
